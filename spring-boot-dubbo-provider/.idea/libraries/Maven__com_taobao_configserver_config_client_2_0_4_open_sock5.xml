@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.taobao.configserver:config-client:2.0.4-open-sock5">
+    <CLASSES>
+      <root url="jar://D:/mavenRepository/com/taobao/configserver/config-client/2.0.4-open-sock5/config-client-2.0.4-open-sock5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/mavenRepository/com/taobao/configserver/config-client/2.0.4-open-sock5/config-client-2.0.4-open-sock5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/mavenRepository/com/taobao/configserver/config-client/2.0.4-open-sock5/config-client-2.0.4-open-sock5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

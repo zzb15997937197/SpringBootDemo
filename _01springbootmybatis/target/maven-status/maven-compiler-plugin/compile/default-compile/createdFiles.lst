@@ -1,0 +1,8 @@
+com\example\springboot\DemoApplication.class
+com\example\springboot\model\User.class
+com\example\springboot\service\impl\UserServiceImpl.class
+com\example\springboot\ServletInitializer.class
+com\example\springboot\mapper\UserMapper.class
+com\example\springboot\controller\MybatisController$1.class
+com\example\springboot\controller\MybatisController.class
+com\example\springboot\service\UserService.class

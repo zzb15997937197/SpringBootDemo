@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <classPathEntry
+            location="C:\Users\admin\.m2\repository\mysql\mysql-connector-java\5.1.6\mysql-connector-java-5.1.6.jar"></classPathEntry>
+    <context id="tables" targetRuntime="mybatis3">
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/db3" userId="root" password="">
+
+
+        </jdbcConnection>
+
+        <!-- 生成model类 -->
+        <javaModelGenerator targetPackage="com.example.springboot.model"
+                            targetProject="src/main/java"></javaModelGenerator>
+
+        <!-- 生成mapper的xml文件-->
+        <sqlMapGenerator targetPackage="com.example.springboot.mapper"
+                         targetProject="src/main/java"></sqlMapGenerator>
+
+        <!-- 生成mapper接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.springboot.mapper"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"></property>
+        </javaClientGenerator>
+
+        <!-- domainObjectName表示的是生成的实体类的名称-->
+        <table tableName="user"
+               domainObjectName="User"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableUpdateByExample="false"
+        />
+    </context>
+</generatorConfiguration>

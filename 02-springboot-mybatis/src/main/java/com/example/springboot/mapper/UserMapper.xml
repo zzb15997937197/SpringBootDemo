@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.example.springboot.model.User">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <id column="created_user" jdbcType="VARCHAR" property="createdUser"/>
+        <result column="username" jdbcType="CHAR" property="username"/>
+        <result column="password" jdbcType="CHAR" property="password"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="gender" jdbcType="INTEGER" property="gender"/>
+        <result column="salt" jdbcType="CHAR" property="salt"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="is_delete" jdbcType="INTEGER" property="isDelete"/>
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="modified_user" jdbcType="VARCHAR" property="modifiedUser"/>
+        <result column="modified_time" jdbcType="TIMESTAMP" property="modifiedTime"/>
+        <result column="avatar" jdbcType="VARCHAR" property="avatar"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, created_user, username, password, email, phone, gender, salt, status, is_delete,
+        created_time, modified_user, modified_time, avatar
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="com.example.springboot.model.UserKey" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where id = #{id,jdbcType=INTEGER}
+        and created_user = #{createdUser,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="com.example.springboot.model.UserKey">
+        delete from user
+        where id = #{id,jdbcType=INTEGER}
+        and created_user = #{createdUser,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.example.springboot.model.User">
+        insert into user (id, created_user, username,
+        password, email, phone,
+        gender, salt, status,
+        is_delete, created_time, modified_user,
+        modified_time, avatar)
+        values (#{id,jdbcType=INTEGER}, #{createdUser,jdbcType=VARCHAR}, #{username,jdbcType=CHAR},
+        #{password,jdbcType=CHAR}, #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
+        #{gender,jdbcType=INTEGER}, #{salt,jdbcType=CHAR}, #{status,jdbcType=INTEGER},
+        #{isDelete,jdbcType=INTEGER}, #{createdTime,jdbcType=TIMESTAMP}, #{modifiedUser,jdbcType=VARCHAR},
+        #{modifiedTime,jdbcType=TIMESTAMP}, #{avatar,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.example.springboot.model.User">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdUser != null">
+                created_user,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="salt != null">
+                salt,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="isDelete != null">
+                is_delete,
+            </if>
+            <if test="createdTime != null">
+                created_time,
+            </if>
+            <if test="modifiedUser != null">
+                modified_user,
+            </if>
+            <if test="modifiedTime != null">
+                modified_time,
+            </if>
+            <if test="avatar != null">
+                avatar,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="createdUser != null">
+                #{createdUser,jdbcType=VARCHAR},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=CHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=CHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                #{gender,jdbcType=INTEGER},
+            </if>
+            <if test="salt != null">
+                #{salt,jdbcType=CHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="isDelete != null">
+                #{isDelete,jdbcType=INTEGER},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifiedUser != null">
+                #{modifiedUser,jdbcType=VARCHAR},
+            </if>
+            <if test="modifiedTime != null">
+                #{modifiedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="avatar != null">
+                #{avatar,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.example.springboot.model.User">
+        update user
+        <set>
+            <if test="username != null">
+                username = #{username,jdbcType=CHAR},
+            </if>
+            <if test="password != null">
+                password = #{password,jdbcType=CHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                gender = #{gender,jdbcType=INTEGER},
+            </if>
+            <if test="salt != null">
+                salt = #{salt,jdbcType=CHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete,jdbcType=INTEGER},
+            </if>
+            <if test="createdTime != null">
+                created_time = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifiedUser != null">
+                modified_user = #{modifiedUser,jdbcType=VARCHAR},
+            </if>
+            <if test="modifiedTime != null">
+                modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+        and created_user = #{createdUser,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.example.springboot.model.User">
+        update user
+        set username = #{username,jdbcType=CHAR},
+        password = #{password,jdbcType=CHAR},
+        email = #{email,jdbcType=VARCHAR},
+        phone = #{phone,jdbcType=VARCHAR},
+        gender = #{gender,jdbcType=INTEGER},
+        salt = #{salt,jdbcType=CHAR},
+        status = #{status,jdbcType=INTEGER},
+        is_delete = #{isDelete,jdbcType=INTEGER},
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+        modified_user = #{modifiedUser,jdbcType=VARCHAR},
+        modified_time = #{modifiedTime,jdbcType=TIMESTAMP},
+        avatar = #{avatar,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+        and created_user = #{createdUser,jdbcType=VARCHAR}
+    </update>
+</mapper>
